@@ -1,0 +1,25 @@
+vsphere_user              = "administrator@vsphere.local"
+vsphere_password          = "your-password"
+vsphere_server            = "vcenter.example.com"
+datacenter_name           = "Datacenter"
+cluster_name              = "Cluster"
+datastore_name            = "Datastore"
+network_name              = "VM Network"
+content_library_name      = "Content Library"
+content_library_item_name = "noble-server-cloudimg-amd64"
+vm_name                   = "ubuntu-test-vm"
+vm_folder                 = "Workloads/TestVMs"
+vm_firmware               = "bios"
+vm_user_ssh_keys          = ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD..."]
+vm_cpu                    = 2
+vm_memory                 = 4096
+vm_user                   = "ubuntu"
+# vm_user_password       = "your-password"
+
+# Static Networking (Optional)
+# vm_ip                  = "192.168.1.100"
+# vm_netmask             = 24
+# vm_gateway             = "192.168.1.1"
+# vm_dns                 = ["8.8.8.8", "8.8.4.4"]
+# vm_dns_search          = ["example.com"]
+# vm_interface_name      = "ens192"

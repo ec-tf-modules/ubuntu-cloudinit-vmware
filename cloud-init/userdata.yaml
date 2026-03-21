@@ -1,0 +1,44 @@
+#cloud-config
+ssh_pwauth: true
+users:
+  - name: ${username}
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    shell: /bin/bash
+    lock_passwd: false
+    ssh_authorized_keys:
+%{ for key in vm_user_ssh_keys }      - "${key}"
+%{ endfor }
+
+chpasswd:
+  expire: false
+  users:
+    - { name: ${username}, password: "${password}", type: text }
+
+package_update: false
+package_upgrade: false
+
+packages:
+  - open-vm-tools
+  # # Active Directory join prerequisites
+  # - realmd
+  # - sssd
+  # - sssd-tools
+  # - libnss-sss
+  # - libpam-sss
+  # - adcli
+  # - samba-common-bin
+  # - packagekit
+  # # Enables automatic home directory creation for AD users
+  # - oddjob
+  # - oddjob-mkhomedir
+
+runcmd:
+  # Masking prevents these unnecessary services from starting even if requested by dependencies
+  - [ systemctl, mask, --now, ModemManager.service ]
+  - [ systemctl, mask, --now, multipathd.service ]
+  - [ systemctl, mask, --now, multipathd.socket ]
+
+hostname: ${hostname}
+fqdn: ${hostname}
+manage_etc_hosts: true
