@@ -4,7 +4,10 @@ This guide describes how to deploy the virtual machine using Terraform. The depl
 
 ## Step 1: Prepare the Content Library
 
-Ensure you have a modern Ubuntu OVA image (e.g., Ubuntu 22.04 LTS) in your vSphere Content Library. The OVA should be an OVF item type.
+This module explicitly requires the OVA image to pre-exist in the vSphere Content Library. Ensure you have a modern Ubuntu OVA image (e.g., Ubuntu 22.04 LTS or 24.04 LTS) in your vSphere Content Library. The OVA should be an OVF item type. 
+
+> [!WARNING]
+> Deploying directly from an OVA file stored on a datastore, or using datastore clusters instead of individual datastores, as the location of the target VM, is currently untested and might not work.
 
 ## Step 2: Configure variables
 

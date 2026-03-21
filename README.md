@@ -19,6 +19,12 @@ This project provides Terraform code to deploy an Ubuntu virtual machine from an
 - An Ubuntu OVA image uploaded to a vSphere Content Library.
 - vCenter credentials and infrastructure details.
 
+## Limitations & Important Notes
+
+- **Content Library Requirement**: This module strictly requires the OVA image to pre-exist in a vSphere Content Library. 
+- **Untested Configurations**: Using a datastore file directly as the source of the OVA, or using datastore clusters instead of specific datastores, has not been tested and might not work as expected.
+
+
 ## Usage
 
 1. **Clone the repository** (or copy the files).
