@@ -10,10 +10,14 @@ users:
 %{ for key in vm_user_ssh_keys }      - "${key}"
 %{ endfor }
 
+%{ if password != null && password != "" }
 chpasswd:
   expire: false
   users:
-    - { name: ${username}, password: "${password}", type: text }
+    - name: ${username}
+      password: "${password}"
+      type: plain
+%{ endif }
 
 package_update: false
 package_upgrade: false
