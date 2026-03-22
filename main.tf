@@ -45,7 +45,7 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label            = "disk0"
-    size             = 20 # Minimum size, OVA might have its own
+    size             = var.vm_disk_size
     thin_provisioned = true
   }
 
@@ -59,10 +59,10 @@ resource "vsphere_virtual_machine" "vm" {
 
   extra_config = {
     "guestinfo.userdata" = base64encode(templatefile("${path.module}/cloud-init/userdata.yaml", {
-      vm_user_ssh_keys= var.vm_user_ssh_keys
-      hostname        = var.vm_name
-      username        = var.vm_user
-      password        = var.vm_user_password
+      vm_user_ssh_keys = var.vm_user_ssh_keys
+      hostname         = var.vm_name
+      username         = var.vm_user
+      password         = var.vm_user_password
     }))
     "guestinfo.userdata.encoding" = "base64"
     "guestinfo.metadata" = base64encode(yamlencode({
@@ -75,7 +75,7 @@ resource "vsphere_virtual_machine" "vm" {
             match = {
               name = "en*" # Matches ens33, ens160, eth0, etc.
             }
-            dhcp4 = var.vm_ip == null ? true : false
+            dhcp4     = var.vm_ip == null ? true : false
             addresses = var.vm_ip != null ? ["${var.vm_ip}/${var.vm_netmask}"] : null
             nameservers = {
               addresses = var.vm_dns

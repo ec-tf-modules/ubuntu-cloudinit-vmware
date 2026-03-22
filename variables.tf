@@ -57,6 +57,12 @@ variable "vm_memory" {
   default     = 4096
 }
 
+variable "vm_disk_size" {
+  description = "The size of the virtual machine disk (in GB)"
+  type        = number
+  default     = 20
+}
+
 variable "vm_user_ssh_keys" {
   description = "A list of SSH public keys to add to the default user"
   type        = list(string)

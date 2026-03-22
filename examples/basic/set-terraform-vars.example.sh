@@ -26,6 +26,7 @@ export TF_VAR_vm_folder="Workloads/TestVMs"
 export TF_VAR_vm_firmware="bios"
 export TF_VAR_vm_cpu=2
 export TF_VAR_vm_memory=4096
+export TF_VAR_vm_disk_size=20
 export TF_VAR_vm_user_ssh_keys='["ssh-rsa AAAAB3N ..."]'
 export TF_VAR_vm_user="ubuntu"
 export TF_VAR_vm_user_password="your-password"
