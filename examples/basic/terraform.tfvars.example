@@ -13,6 +13,7 @@ vm_firmware               = "bios"
 vm_user_ssh_keys          = ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD..."]
 vm_cpu                    = 2
 vm_memory                 = 4096
+vm_disk_size              = 20
 vm_user                   = "ubuntu"
 # vm_user_password       = "your-password"
 
