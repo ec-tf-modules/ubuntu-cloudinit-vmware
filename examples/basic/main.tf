@@ -24,12 +24,13 @@ module "ubuntu_vm" {
   content_library_name      = var.content_library_name
   content_library_item_name = var.content_library_item_name
 
-  vm_name      = var.vm_name
-  vm_folder    = var.vm_folder
-  vm_firmware  = var.vm_firmware
-  vm_cpu       = var.vm_cpu
-  vm_memory    = var.vm_memory
-  vm_disk_size = var.vm_disk_size
+  vm_name       = var.vm_name
+  vm_folder     = var.vm_folder
+  vm_firmware   = var.vm_firmware
+  vm_hw_version = var.vm_hw_version
+  vm_cpu        = var.vm_cpu
+  vm_memory     = var.vm_memory
+  vm_disk_size  = var.vm_disk_size
 
   vm_user_ssh_keys  = var.vm_user_ssh_keys
   vm_user           = var.vm_user

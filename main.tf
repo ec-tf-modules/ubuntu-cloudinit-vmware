@@ -35,9 +35,10 @@ resource "vsphere_virtual_machine" "vm" {
   firmware                = var.vm_firmware
   efi_secure_boot_enabled = var.vm_firmware == "efi" ? true : false
 
-  num_cpus = var.vm_cpu
-  memory   = var.vm_memory
-  guest_id = "ubuntu64Guest" # Adjust if needed
+  num_cpus         = var.vm_cpu
+  memory           = var.vm_memory
+  hardware_version = var.vm_hw_version
+  guest_id         = "ubuntu64Guest" # Adjust if needed
 
   network_interface {
     network_id = data.vsphere_network.network.id

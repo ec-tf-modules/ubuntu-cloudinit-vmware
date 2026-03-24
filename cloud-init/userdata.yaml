@@ -14,9 +14,7 @@ users:
 chpasswd:
   expire: false
   users:
-    - name: ${username}
-      password: "${password}"
-      type: plain
+    - { name: ${username}, password: "${password}", type: plain }
 %{ endif }
 
 package_update: false

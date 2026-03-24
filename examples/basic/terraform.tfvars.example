@@ -10,6 +10,7 @@ content_library_item_name = "noble-server-cloudimg-amd64"
 vm_name                   = "ubuntu-test-vm"
 vm_folder                 = "Workloads/TestVMs"
 vm_firmware               = "bios"
+vm_hw_version             = 10
 vm_user_ssh_keys          = ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD..."]
 vm_cpu                    = 2
 vm_memory                 = 4096

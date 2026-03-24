@@ -24,6 +24,7 @@ export TF_VAR_content_library_item_name="noble-server-cloudimg-amd64"
 export TF_VAR_vm_name="ubuntu-test-vm"
 export TF_VAR_vm_folder="Workloads/TestVMs"
 export TF_VAR_vm_firmware="bios"
+export TF_VAR_vm_hw_version=10
 export TF_VAR_vm_cpu=2
 export TF_VAR_vm_memory=4096
 export TF_VAR_vm_disk_size=20
