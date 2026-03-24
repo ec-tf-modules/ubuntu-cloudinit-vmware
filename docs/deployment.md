@@ -11,6 +11,9 @@ This module explicitly requires the OVA image to pre-exist in the vSphere Conten
 
 ## Step 2: Configure variables
 
+> [!IMPORTANT]
+> To use EFI boot and SecureBoot features (`vm_firmware = "efi"`), you must customize the VM hardware version using the `vm_hw_version` variable. The minimum hardware version required for EFI firmware and SecureBoot to work is 13.
+
 Create a `terraform.tfvars` file and fill in the required variables.
 
 > [!NOTE]

@@ -45,6 +45,12 @@ variable "vm_firmware" {
   default     = "bios"
 }
 
+variable "vm_hw_version" {
+  description = "The hardware version of the virtual machine (minimum 13 is required for EFI and SecureBoot)"
+  type        = number
+  default     = 10
+}
+
 variable "vm_cpu" {
   description = "The number of CPUs for the virtual machine"
   type        = number

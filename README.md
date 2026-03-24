@@ -22,6 +22,7 @@ This project provides Terraform code to deploy an Ubuntu virtual machine from an
 ## Limitations & Important Notes
 
 - **Content Library Requirement**: This module strictly requires the OVA image to pre-exist in a vSphere Content Library. 
+- **EFI and SecureBoot**: Customizing the VM hardware version via the `vm_hw_version` variable is required if EFI boot and SecureBoot features are used. Minimum hardware version for EFI firmware and SecureBoot to work is 13.
 - **Untested Configurations**: Using a datastore file directly as the source of the OVA, or using datastore clusters instead of specific datastores, has not been tested and might not work as expected.
 
 
