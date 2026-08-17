@@ -34,7 +34,13 @@ variable "vm_name" {
 }
 
 variable "vm_folder" {
-  description = "The folder to place the virtual machine in"
+  description = "The folder to place the virtual machine in. Ignored if resource_pool_id is specified, as vSphere does not allow setting a folder for VMs in a vApp container."
+  type        = string
+  default     = null
+}
+
+variable "resource_pool_id" {
+  description = "The ID of the vSphere resource pool or vApp container to place the VM in. Takes precedence over vm_folder as vSphere does not allow setting a folder while in a vApp container."
   type        = string
   default     = null
 }
@@ -43,6 +49,17 @@ variable "vm_firmware" {
   description = "The firmware for the virtual machine (bios or efi)"
   type        = string
   default     = "bios"
+
+  validation {
+    condition     = contains(["bios", "efi"], var.vm_firmware)
+    error_message = "The vm_firmware value must be either 'bios' or 'efi'."
+  }
+}
+
+variable "vm_guest_id" {
+  description = "The guest OS identifier for the virtual machine"
+  type        = string
+  default     = "ubuntu64Guest"
 }
 
 variable "vm_hw_version" {

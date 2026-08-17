@@ -27,6 +27,7 @@ vsphere_password       = "your-password"
 vsphere_server         = "vcenter.example.com"
 datacenter_name        = "Datacenter"
 cluster_name           = "Cluster"
+resource_pool_id       = null # Optional, defaults to cluster root pool
 datastore_name         = "Datastore"
 network_name           = "VM Network"
 content_library_name   = "Content Library"
