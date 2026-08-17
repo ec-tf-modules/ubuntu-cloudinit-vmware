@@ -25,6 +25,15 @@
 - Use environment variables to store sensitive information.
 - Use secrets management tools to store sensitive information.
 - Use best practices to protect the privileged accounts and to limit accidental access.
+- Follow Terraform best practices when creating or updating Terraform code:
+  - Format all HCL files canonically using `terraform fmt`.
+  - Always declare `required_version` and provider constraints in `versions.tf`.
+  - Do not place `provider` configuration blocks inside reusable module code.
+  - Define explicit `type`, `description`, and `validation` blocks for input variables where applicable.
+  - Mark password and secret variables as `sensitive = true`.
+  - Avoid hardcoding values; parameterize guest IDs, hardware versions, and resource settings.
+  - Keep module outputs comprehensive (expose resource IDs, names, IP addresses, and placement details).
+  - Always keep `README.md`, `docs/deployment.md`, and all `*.example.*` files synchronized with variable or architectural changes.
 
 # Coding standards
 

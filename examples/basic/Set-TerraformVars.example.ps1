@@ -23,7 +23,9 @@ $env:TF_VAR_content_library_item_name = "noble-server-cloudimg-amd64"
 # VM Configuration
 $env:TF_VAR_vm_name = "ubuntu-test-vm"
 $env:TF_VAR_vm_folder = "Workloads/TestVMs"
+# $env:TF_VAR_resource_pool_id = "resgroup-12345"
 $env:TF_VAR_vm_firmware            = "bios"
+$env:TF_VAR_vm_guest_id             = "ubuntu64Guest"
 $env:TF_VAR_vm_hw_version          = 10
 $env:TF_VAR_vm_cpu                 = 2
 $env:TF_VAR_vm_memory              = 4096

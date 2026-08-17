@@ -5,6 +5,7 @@ This project provides Terraform code to deploy an Ubuntu virtual machine from an
 ## Features
 
 - **Content Library Integration**: Deploys directly from an OVA in a Content Library.
+- **Resource Pool Placement**: Supports deploying VMs directly into a specific vSphere Resource Pool or vApp container via `resource_pool_id` (defaults to cluster root pool).
 - **Cloud-Init Customization**: Automatically configures the VM hostname, provisions an admin user (with a plain text password and one or more SSH keys), and installs essential system packages immediately upon first boot.
 - **Flexible Networking**: The VM can be configured with a network address assigned dynamically via DHCP or defined manually with static IP settings.
 - **Open-VM-Tools**: Ensures the guest agent is installed and enabled for better vSphere integration.
@@ -55,7 +56,6 @@ This project provides Terraform code to deploy an Ubuntu virtual machine from an
 
 - `main.tf`: Data sources and VM resource definition.
 - `variables.tf`: Input variable definitions.
-- `provider.tf`: vSphere provider configuration.
 - `versions.tf`: Required Terraform and provider versions.
 - `outputs.tf`: VM name and IP address output.
 - `cloud-init/userdata.yaml`: Cloud-init template.

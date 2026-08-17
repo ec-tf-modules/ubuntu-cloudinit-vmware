@@ -29,7 +29,7 @@ data "vsphere_content_library_item" "item" {
 
 resource "vsphere_virtual_machine" "vm" {
   name                    = var.vm_name
-  resource_pool_id        = data.vsphere_compute_cluster.cluster.resource_pool_id
+  resource_pool_id        = coalesce(var.resource_pool_id, data.vsphere_compute_cluster.cluster.resource_pool_id)
   datastore_id            = data.vsphere_datastore.datastore.id
   folder                  = var.vm_folder
   firmware                = var.vm_firmware
@@ -38,7 +38,7 @@ resource "vsphere_virtual_machine" "vm" {
   num_cpus         = var.vm_cpu
   memory           = var.vm_memory
   hardware_version = var.vm_hw_version
-  guest_id         = "ubuntu64Guest" # Adjust if needed
+  guest_id         = var.vm_guest_id
 
   network_interface {
     network_id = data.vsphere_network.network.id

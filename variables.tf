@@ -39,10 +39,27 @@ variable "vm_folder" {
   default     = null
 }
 
+variable "resource_pool_id" {
+  description = "The ID of the vSphere resource pool or vApp container to place the VM in. Defaults to cluster root pool if null."
+  type        = string
+  default     = null
+}
+
 variable "vm_firmware" {
   description = "The firmware for the virtual machine (bios or efi)"
   type        = string
   default     = "bios"
+
+  validation {
+    condition     = contains(["bios", "efi"], var.vm_firmware)
+    error_message = "The vm_firmware value must be either 'bios' or 'efi'."
+  }
+}
+
+variable "vm_guest_id" {
+  description = "The guest OS identifier for the virtual machine"
+  type        = string
+  default     = "ubuntu64Guest"
 }
 
 variable "vm_hw_version" {
