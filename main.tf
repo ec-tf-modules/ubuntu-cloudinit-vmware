@@ -97,4 +97,10 @@ resource "vsphere_virtual_machine" "vm" {
 
   # Wait for IP if DHCP (vm_ip is null), otherwise skip wait
   wait_for_guest_net_timeout = var.vm_ip == null ? 5 : 0
+
+  lifecycle {
+    ignore_changes = [
+      hardware_version,
+    ]
+  }
 }
