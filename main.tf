@@ -28,10 +28,12 @@ data "vsphere_content_library_item" "item" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  name                    = var.vm_name
+  name = var.vm_name
+  # Folder and custom resource pool (vApp) are mutually exclusive in vSphere.
+  # resource_pool_id (vApp) takes precedence: if specified, folder is set to null as vSphere prohibits setting a folder inside a vApp.
   resource_pool_id        = coalesce(var.resource_pool_id, data.vsphere_compute_cluster.cluster.resource_pool_id)
   datastore_id            = data.vsphere_datastore.datastore.id
-  folder                  = var.vm_folder
+  folder                  = var.resource_pool_id != null ? null : var.vm_folder
   firmware                = var.vm_firmware
   efi_secure_boot_enabled = var.vm_firmware == "efi" ? true : false
 
