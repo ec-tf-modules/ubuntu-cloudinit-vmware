@@ -101,6 +101,7 @@ resource "vsphere_virtual_machine" "vm" {
   lifecycle {
     ignore_changes = [
       hardware_version,
+      resource_pool_id,
     ]
   }
 }
