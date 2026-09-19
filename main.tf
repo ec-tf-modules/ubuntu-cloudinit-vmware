@@ -104,6 +104,7 @@ resource "vsphere_virtual_machine" "vm" {
     ignore_changes = [
       hardware_version,
       resource_pool_id,
+      clone,
     ]
   }
 }
